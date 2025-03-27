@@ -57,12 +57,10 @@ public class SwiftPerfectVolumeControlPlugin: NSObject, FlutterPlugin {
             }
         }
         
-        if slider == nil {
-            result(FlutterError(code: "-1", message: "Unable to get UISlider", details: "Unable to get UISlider"))
-            return
+        if let slider = slider {
+            slider.setValue(Float(volume), animated: false)
         }
         
-        slider!.setValue(Float(volume), animated: false)
         result(nil)
     }
     
